@@ -13,17 +13,16 @@ func GetFlujoID(docID string) string {
 	if respuesta != nil {
 		respuesta = GetElemento(respuesta, "entries")
 		estadoFlujo = GetElementoMaptoString(respuesta, "state")
-		if(estadoFlujo != "Objeto de longitud cero") {
+		if estadoFlujo != "Objeto de longitud cero" {
 			StringRespueta = GetElementoMaptoString(respuesta, "id")
 			return StringRespueta
 		}
-		if(estadoFlujo == "Objeto de longitud cero") {			
+		if estadoFlujo == "Objeto de longitud cero" {
 			return "NoID"
 		}
-		
+
 	} else {
 		logs.Error("Error al obtener el ID del flujo")
 	}
 	return "nil"
 }
-

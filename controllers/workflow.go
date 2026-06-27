@@ -103,9 +103,9 @@ func (c *WorkflowController) Delete() {
 
 func EliminarFlujo(DocID string) string {
 	var respuesta interface{}
-	
+
 	flujoID := models.GetFlujoID(DocID)
-	if (flujoID != "NoID"){
+	if flujoID != "NoID" {
 		endpoint := "workflow/" + flujoID
 		respuesta = models.DeleteNuxeo(endpoint)
 		if respuesta != nil {
@@ -118,7 +118,4 @@ func EliminarFlujo(DocID string) string {
 		logs.Error("no hay flujo vonculado a documento")
 		return "FAILURE"
 	}
-	
-	
-	return ""
 }
